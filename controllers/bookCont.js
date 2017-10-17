@@ -28,7 +28,7 @@ let createBook = (req, res) => {
 
 let updateBook = (req, res) => {
   dbBook.update({
-    id: req.params.id
+    _id: req.params.id
   }, {
     isbn: req.body.isbn,
     title: req.body.title,
@@ -44,9 +44,21 @@ let updateBook = (req, res) => {
   })
 }
 
+let deleteBook = (req, res) => {
+  dbBook.remove({
+    _id: req.params.id
+  }, function (err, result) {
+    if (!err) {
+      res.send(result)
+    } else {
+      res.send(err)
+    }
+  })
+}
 
 module.exports = {
   viewBook,
   createBook,
-  updateBook
+  updateBook,
+  deleteBook
 }
