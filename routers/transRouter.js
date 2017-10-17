@@ -4,7 +4,7 @@ const Trans = require('../controllers/transactionCont')
 
 router.get('/trans', Trans.viewTrans)
 router.post('/trans', Trans.createTrans)
-// router.put('/books/:id', Books.updateBook)
-// router.delete('/books/:id', Books.deleteBook)
+router.put('/trans/:id', Trans.editTrans)
+router.delete('/trans/:id', Trans.deleteTrans)
 
 module.exports = router
