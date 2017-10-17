@@ -9,9 +9,11 @@ app.use(bodyParser.json())
 
 let books = require('./routers/bookRouter')
 let customer = require('./routers/custRouter')
+let transaction = require('./routers/transRouter')
 
 app.use('/api', books)
 app.use('/api', customer)
+app.use('/api', transaction)
 
 app.listen(process.env.Port || 3000, ()=>{
   console.log('i am running at port 3000');
